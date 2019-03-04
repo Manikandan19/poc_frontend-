@@ -1,0 +1,141 @@
+<div class="container  d-block bg-white mt-5  py-3 shadow-lg rounded-lg w-75 text-justify">
+  <mat-card>
+    <h1 class="text-center">User-Details <i class="fas fa-user-plus"></i> </h1>
+  </mat-card>
+  <div class="row">
+    <div class="col">
+      <h6>UserName</h6>
+    </div>
+    <div class="col">
+      {{userDetails.details.userName}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>Forename</h6>
+    </div>
+    <div class="col">
+      {{userDetails.details.foreName}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>Middlename</h6>
+    </div>
+    <div class="col">
+      {{userDetails.details.middleName}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>Surname</h6>
+    </div>
+    <div class="col">
+      {{userDetails.details.surName}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>DateOfBirth</h6>
+    </div>
+    <div class="col">
+      {{userDetails.details.dob | date}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>Age</h6>
+    </div>
+    <div class="col">
+      {{userDetails.details.age}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>Gender</h6>
+    </div>
+    <div class="col">
+      {{userDetails.details.gender}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>Password</h6>
+    </div>
+    <div class="col">
+      {{userDetails.details.password}}
+    </div>
+  </div>
+  <mat-card>
+    <h1 class="text-center">Address <i class="fa fa-address-card" aria-hidden="true"></i></h1>
+  </mat-card>
+  <div class="row">
+    <div class="col">
+      <h6>FlatNo</h6>
+    </div>
+    <div class="col">
+      {{userDetails.address.flatNo}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>Landmark</h6>
+    </div>
+    <div class="col">
+      {{userDetails.address.landMark}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>Street</h6>
+    </div>
+    <div class="col">
+      {{userDetails.address.street}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>City</h6>
+    </div>
+    <div class="col">
+      {{userDetails.address.city}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>State</h6>
+    </div>
+    <div class="col">
+      {{userDetails.address.state}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>Country</h6>
+    </div>
+    <div class="col">
+      {{userDetails.address.country}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h6>Pincode</h6>
+    </div>
+    <div class="col">
+      {{userDetails.address.zipCode}}
+    </div>
+  </div>
+</div>

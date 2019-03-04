@@ -1,0 +1,223 @@
+<div class="container  d-block bg-white mt-5  py-3 shadow-lg rounded-lg w-75  text-center ">
+  <div *ngIf="isDisable">
+    <h6 [className]="alert ? 'alert alert-success' : 'alert alert-danger'">{{response}}</h6>
+  </div>
+  <mat-card>
+    <h1 class="text-center">User-Details <i class="fas fa-user-plus"></i> </h1>
+  </mat-card>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class=" py-3">
+
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <mat-form-field>
+          <input matInput formControlName="name" placeholder="UserName" readonly />
+        </mat-form-field>
+
+        <div *ngIf="f.name.errors && (f.name.dirty || f.name.touched)">
+          <mat-error *ngIf="f.name.hasError('required')">
+            Username is required
+          </mat-error>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <mat-form-field>
+          <input matInput formControlName="forename" placeholder="Forename" />
+        </mat-form-field>
+        <div *ngIf="f.forename.errors && (f.forename.dirty || f.forename.touched)">
+          <mat-error *ngIf="f.forename.hasError('required')">
+            Forename is required
+          </mat-error>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <mat-form-field>
+          <input matInput formControlName="middlename" placeholder="Middlename" [required]=false />
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <mat-form-field>
+          <input matInput formControlName="surname" placeholder="Surname" />
+        </mat-form-field>
+        <div *ngIf="f.surname.errors && (f.surname.dirty || f.surname.touched)">
+          <mat-error *ngIf="f.surname.hasError('required')">
+            Surname is required
+          </mat-error>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <mat-form-field class="example-full-width">
+          <input matInput formControlName="dob" [matDatepicker]="picker" placeholder="DateOfBirth" (keypress)="isNumber($event)" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker></mat-datepicker>
+        </mat-form-field>
+        <div *ngIf="f.dob.errors && (f.dob.dirty || f.dob.touched)">
+          <mat-error *ngIf="f.dob.hasError('required')">
+            DateOfBirth is required
+          </mat-error>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <mat-form-field>
+          <input matInput formControlName="age" placeholder="Age" (keypress)="isNumber($event)" />
+        </mat-form-field>
+        <div *ngIf="f.age.errors && (f.age.dirty || f.age.touched)">
+          <mat-error *ngIf="f.age.hasError('required')">
+            Age is required
+          </mat-error>
+        </div>
+      </div>
+
+
+      <div class="form-group col-sm-6">
+        <mat-form-field>
+          <mat-select formControlName="sex" placeholder="Select the gender">
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+            <mat-option value="Others">Others</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div *ngIf="f.sex.errors && (f.sex.dirty || f.sex.touched)">
+          <mat-error *ngIf="f.sex.hasError('required')">
+            Gender is required
+          </mat-error>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-6">
+        <mat-form-field>
+          <input matInput formControlName="password" placeholder="Password" />
+        </mat-form-field>
+        <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
+          <mat-error *ngIf="f.password.hasError('required')">
+            Password is required
+          </mat-error>
+        </div>
+      </div>
+      <div class="form-group col-sm-6">
+        <mat-form-field>
+          <input matInput formControlName="confirmpassword" placeholder="ConfirmPassword" />
+        </mat-form-field>
+        <div *ngIf="f.confirmpassword.errors && (f.confirmpassword.dirty || f.confirmpassword.touched)">
+          <mat-error *ngIf="f.confirmpassword.hasError('required')">
+            ConfirmPassword is required
+          </mat-error>
+        </div>
+      </div>
+    </div>
+
+    <div formGroupName="addressDetails">
+      <mat-card>
+        <h1 class="text-center">Address <i class="fa fa-address-card" aria-hidden="true"></i></h1>
+      </mat-card>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input matInput formControlName="flatNo" placeholder="FlatNo" />
+          </mat-form-field>
+          <div *ngIf="address.controls.flatNo.errors && (address.controls.flatNo.dirty ||address.controls.flatNo.touched)">
+            <mat-error *ngIf="address.controls.flatNo.hasError('required')">
+              FlatNo is required
+            </mat-error>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input matInput formControlName="landMark" placeholder="Landmark" />
+          </mat-form-field>
+          <div *ngIf="address.controls.landMark.errors && (address.controls.landMark.dirty || address.controls.landMark.touched)">
+            <mat-error *ngIf="address.controls.landMark.hasError('required')">
+              Landmark is required
+            </mat-error>
+          </div>
+        </div>
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input matInput formControlName="street" placeholder="Street" />
+          </mat-form-field>
+          <div *ngIf="address.controls.street.errors && (address.controls.street.dirty || address.controls.street.touched)">
+            <mat-error *ngIf="address.controls.street.hasError('required')">
+              Street is required
+            </mat-error>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input matInput formControlName="city" placeholder="City" />
+          </mat-form-field>
+          <div *ngIf="address.controls.city.errors && (address.controls.city.dirty || address.controls.city.touched)">
+            <mat-error *ngIf="address.controls.city.hasError('required')">
+              City is required
+            </mat-error>
+          </div>
+        </div>
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input matInput formControlName="state" placeholder="State" />
+          </mat-form-field>
+          <div *ngIf="address.controls.state.errors && (address.controls.state.dirty || address.controls.state.touched)">
+            <mat-error *ngIf="address.controls.state.hasError('required')">
+              State is required
+            </mat-error>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input matInput formControlName="country" placeholder="Country" />
+          </mat-form-field>
+          <div *ngIf="address.controls.country.errors && (address.controls.country.dirty || address.controls.country.touched)">
+            <mat-error *ngIf="address.controls.country.hasError('required')">
+              Country is required
+            </mat-error>
+          </div>
+        </div>
+        <div class="form-group col-sm-6">
+          <mat-form-field>
+            <input matInput formControlName="zipCode" placeholder="Pincode" (keypress)="isNumber($event)" />
+          </mat-form-field>
+          <div *ngIf="address.controls.zipCode.errors && (address.controls.zipCode.dirty || address.controls.zipCode.touched)">
+            <mat-error *ngIf="address.controls.zipCode.hasError('required')">
+              Pincode is required
+            </mat-error>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row ">
+      <div class="form-group col-sm-4 ">
+        <button type="submit" class="btn btn-success rounded-pill">Submit</button>
+      </div>
+      <div class="form-group col-sm-4 ">
+        <button type="reset" class="btn btn-danger rounded-pill">Reset</button>
+      </div>
+      <div class="form-group col-sm-4 ">
+        <button type="button" id="back" (click)="getBack()" class="btn btn-primary rounded-pill">Back</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="large" color="#fff" type="ball-clip-rotate-pulse" fullScreen="true">
+  <p style="font-size: 20px; color: white">Processing...</p>
+</ngx-spinner>

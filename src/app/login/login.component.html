@@ -1,0 +1,45 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="large" color="#fff" type="ball-clip-rotate-pulse" fullScreen="true">
+  <p style="font-size: 20px; color: white">Processing...</p>
+</ngx-spinner>
+
+
+<div class="container   h-50 d-block bg-white mt-5  py-3 shadow-lg rounded-lg w-50 ">
+  <mat-card class=" text-center">
+    <h2>User login <i class="fas fa-user-tie"></i></h2>
+  </mat-card>
+  <div class="row mx-auto">
+    <div class="col text-center">
+
+    </div>
+  </div>
+  <div class="row mx-auto w-50 py-1">
+    <div class="col text-center">
+      <mat-form-field class="w-100">
+        <input matInput [(ngModel)]="userName" placeholder="UserName" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row mx-auto w-50  py-1">
+    <div class="col text-center">
+      <mat-form-field class="w-100">
+        <input matInput [(ngModel)]="password" placeholder="Password"  type="password"/>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col">
+      <button type="button" (click)="onLogin()" class="btn rounded-pill ">
+        Login
+      </button>
+    </div>
+  </div>
+
+  <div class="row  px-5 py-5">
+    <div class="col text-center  ">
+      <a routerLink='/register'>New User Register Here <i class="fas fa-user-plus"></i></a>
+    </div>
+  </div>
+  <div *ngIf="isDisable" class="text-center">
+    <h6 [className]="alert ? 'alert alert-success' : 'alert alert-danger'">{{response}}</h6>
+  </div>
+</div>
