@@ -2,7 +2,7 @@
   <div *ngIf="isDisable">
     <h6 [className]="alert ? 'alert alert-success' : 'alert alert-danger'">{{response}}<a *ngIf="alert"  [routerLink]="['/login']" routerLinkActive="active-link">Goto Login page</a></h6>
   </div>
-  <mat-card>
+  <mat-card class="shadow">
     <h1 class="text-center">User-Details <i class="fas fa-user-plus"></i> </h1>
   </mat-card>
 
@@ -121,7 +121,7 @@
     </div>
 
     <div formGroupName="addressDetails">
-      <mat-card>
+      <mat-card class="shadow">
         <h1 class="text-center">Address <i class="fa fa-address-card" aria-hidden="true"></i></h1>
       </mat-card>
       <div class="row">

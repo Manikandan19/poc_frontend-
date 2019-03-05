@@ -188,7 +188,7 @@ export class EditUserDetailsComponent implements OnInit {
   }
 
   getBack() {
-    return this.router.navigate(['/api-service/user/user-details']);
+    return this.router.navigate(['/user-service/user/user-details']);
   }
 
   onCreate(data: any) {

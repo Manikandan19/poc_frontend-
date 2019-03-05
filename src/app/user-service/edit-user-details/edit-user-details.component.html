@@ -1,5 +1,5 @@
 <div class="container  bg-white mt-3  py-3 px-3 shadow rounded-lg w-100 text-center">
-  <mat-card class="my-3">
+  <mat-card class="my-3 shadow">
     <h1 class="text-center">User-Details <i class="fas fa-user-plus"></i> </h1>
   </mat-card>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="py-3">
@@ -117,7 +117,7 @@
     </div>
 
     <div formGroupName="addressDetails">
-      <mat-card class="my-3">
+      <mat-card class="my-3 shadow">
         <h1 class="text-center">Address <i class="fa fa-address-card" aria-hidden="true"></i></h1>
       </mat-card>
       <div class="row">
