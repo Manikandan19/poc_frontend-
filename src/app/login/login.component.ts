@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
         if (data) {
           this.spinner.hide();
           this.auth.isLoggedIn = true;
-          return this.router.navigate(['/api-service']);
+          return this.router.navigate(['/user-service']);
         }
         else {
           this.response = "Invalid User ! Please Enter Valid User Credentials";

@@ -1,15 +1,17 @@
 <div class="container-fluid">
   <div class="row content">
     <mat-card class=" col-sm-2 mx-3 my-3 shadow">
-      <div >
+      <div>
 
         <h1 class="demo">Demo-App </h1>
         <nav class="navbar ">
           <ul class="nav navbar-nav nav-justified">
-            <li class="nav-item"><a class="nav-link" [routerLink]="['/api-service/user/user-details']" routerLinkActive="active-link">
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/user-service/user/user-details']"
+                routerLinkActive="active-link">
                 <h5>User-Information</h5>
               </a></li>
-            <li class="nav-item"><a class="nav-link" [routerLink]="['/api-service/user/edit-details']" routerLinkActive="active-link">
+            <li class="nav-item"><a class="nav-link" [routerLink]="['/user-service/user/edit-details']"
+                routerLinkActive="active-link">
                 <h5>Edit-UserDetails</h5>
               </a></li>
           </ul>
@@ -23,7 +25,8 @@
             <h3>Welcome {{userDetails.details.foreName}} {{userDetails.details.surName}} <i class="fas fa-user-tie"></i></h3>
           </div>
           <div class="col-sm-3 pull-right">
-            <button type="button" class="btn btn-danger rounded-pill" (click)=" logout()">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-danger rounded-pill" (click)=" logout()">Logout <i class="fa fa-sign-out"
+                aria-hidden="true"></i></button>
           </div>
         </div>
       </mat-card>

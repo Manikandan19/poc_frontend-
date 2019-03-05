@@ -9,7 +9,7 @@ import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'api-service', loadChildren: 'src/app/user-service/user-service.module#UserServiceModule',canActivate:[LoginGuard] },
+  { path: 'user-service', loadChildren: 'src/app/user-service/user-service.module#UserServiceModule',canActivate:[LoginGuard] },
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: '**', redirectTo: 'login' }
 ];
