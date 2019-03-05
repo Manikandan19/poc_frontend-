@@ -14,9 +14,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
-  declarations: [UserComponent, UserDetailsComponent, EditUserDetailsComponent],
+  declarations: [UserComponent, UserDetailsComponent, EditUserDetailsComponent, AlertComponent],
   imports: [
     CommonModule,
     UserServiceRoutingModule,
@@ -30,7 +32,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
-  ]
+    MatSelectModule,
+    MatDialogModule
+  ],
+  entryComponents:[AlertComponent]
 })
 export class UserServiceModule { }

@@ -1,21 +1,12 @@
-.row.content {
-  height: 1200px;
-}
-
 .sidenav {
   background-color: white;
-  height: 100%;
-}
 
+}
 
 @media screen and (max-width: 767px) {
   .sidenav {
-    height: auto;
+   
     padding: 15px;
-  }
-
-  .row.content {
-    height: auto;
   }
 }
 
@@ -23,7 +14,6 @@
 a {
   text-decoration: none;
   color: rgb(126, 147, 161);
-  font-size: 20px;
 }
 
 
@@ -33,4 +23,9 @@ a {
 
 .demo{
   color: #4060a7;
+}
+
+button
+{
+  width: 50%;
 }

@@ -1,4 +1,5 @@
 export interface UserDetails {
+    userId:any,
     userName: any,
     title: any,
     foreName: any,

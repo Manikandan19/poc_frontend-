@@ -1,5 +1,11 @@
 
 
+.login-btn{
+    background-color:#4060a7;
+    color:white;
+    width:100%;
+}
+
 a{
     font-size:1.25em;
     color: #5f6e8d;
@@ -12,13 +18,10 @@ a:hover
     color: #df3131;
 }
 
-button
-{
- background-color:#4060a7;
- color:white;
-}
 
 h2{
     text-transform: capitalize;
 }
-
+.input-bg input{   
+        background-color:#ffffff!important;   
+}

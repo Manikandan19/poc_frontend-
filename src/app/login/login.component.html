@@ -3,40 +3,24 @@
 </ngx-spinner>
 
 
-<div class="container   h-50 d-block bg-white mt-5  py-3 shadow-lg rounded-lg w-50 ">
+<div class="container   h-25  bg-white mt-5  py-3 shadow-lg rounded-lg w-50 ">
   <mat-card class=" text-center">
-    <h2>User login <i class="fas fa-user-tie"></i></h2>
+    <h2>User login <i class="fa fa-user-circle-o" aria-hidden="true"></i></h2>
   </mat-card>
-  <div class="row mx-auto">
-    <div class="col text-center">
-
-    </div>
-  </div>
-  <div class="row mx-auto w-50 py-1">
-    <div class="col text-center">
-      <mat-form-field class="w-100">
-        <input matInput [(ngModel)]="userName" placeholder="UserName" />
-      </mat-form-field>
-    </div>
-  </div>
-  <div class="row mx-auto w-50  py-1">
-    <div class="col text-center">
-      <mat-form-field class="w-100">
-        <input matInput [(ngModel)]="password" placeholder="Password"  type="password"/>
-      </mat-form-field>
-    </div>
-  </div>
-  <div class="row ">
-    <div class="col">
-      <button type="button" (click)="onLogin()" class="btn rounded-pill ">
-        Login
-      </button>
-    </div>
-  </div>
-
-  <div class="row  px-5 py-5">
-    <div class="col text-center  ">
-      <a routerLink='/register'>New User Register Here <i class="fas fa-user-plus"></i></a>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="text-center my-4">
+        <mat-form-field class="w-100 input-bgt">
+          <input matInput [(ngModel)]="userName" placeholder="UserName" />
+        </mat-form-field>
+        <mat-form-field class="w-100 input-bg">
+          <input matInput [(ngModel)]="password" placeholder="Password" type="password" />
+        </mat-form-field>
+        <button type="button" (click)="onLogin()" class="btn rounded-pill login-btn mb-3">
+          Login <i class="fa fa-sign-in" aria-hidden="true"></i>
+        </button>
+        <div> <a routerLink='/register'>New User Register Here <i class="fas fa-user-plus"></i></a></div>
+      </div>
     </div>
   </div>
   <div *ngIf="isDisable" class="text-center">

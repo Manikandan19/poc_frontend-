@@ -1,12 +1,8 @@
-<div class="container  d-block bg-white mt-5  py-3 shadow-lg rounded-lg w-75  text-center ">
-  <div *ngIf="isDisable">
-    <h6 [className]="alert ? 'alert alert-success' : 'alert alert-danger'">{{response}}</h6>
-  </div>
-  <mat-card>
+<div class="container  bg-white mt-3  py-3 px-3 shadow rounded-lg w-100 text-center">
+  <mat-card class="my-3">
     <h1 class="text-center">User-Details <i class="fas fa-user-plus"></i> </h1>
   </mat-card>
-
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class=" py-3">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="py-3">
 
     <div class="row">
       <div class="form-group col-sm-6">
@@ -100,7 +96,7 @@
     <div class="row">
       <div class="form-group col-sm-6">
         <mat-form-field>
-          <input matInput formControlName="password" placeholder="Password" />
+          <input matInput formControlName="password" placeholder="Password" type="password" />
         </mat-form-field>
         <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
           <mat-error *ngIf="f.password.hasError('required')">
@@ -110,7 +106,7 @@
       </div>
       <div class="form-group col-sm-6">
         <mat-form-field>
-          <input matInput formControlName="confirmpassword" placeholder="ConfirmPassword" />
+          <input matInput formControlName="confirmpassword" placeholder="ConfirmPassword" type="password" />
         </mat-form-field>
         <div *ngIf="f.confirmpassword.errors && (f.confirmpassword.dirty || f.confirmpassword.touched)">
           <mat-error *ngIf="f.confirmpassword.hasError('required')">
@@ -121,7 +117,7 @@
     </div>
 
     <div formGroupName="addressDetails">
-      <mat-card>
+      <mat-card class="my-3">
         <h1 class="text-center">Address <i class="fa fa-address-card" aria-hidden="true"></i></h1>
       </mat-card>
       <div class="row">
@@ -206,7 +202,7 @@
     <hr>
     <div class="row ">
       <div class="form-group col-sm-4 ">
-        <button type="submit" class="btn btn-success rounded-pill">Submit</button>
+        <button type="submit" class="btn btn-success rounded-pill">Update</button>
       </div>
       <div class="form-group col-sm-4 ">
         <button type="reset" class="btn btn-danger rounded-pill">Reset</button>

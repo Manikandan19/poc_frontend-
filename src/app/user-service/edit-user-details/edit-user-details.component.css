@@ -2,3 +2,8 @@ input:read-only
 {
     opacity: 0.5;
 }
+
+button
+{
+    width: 50%;
+}

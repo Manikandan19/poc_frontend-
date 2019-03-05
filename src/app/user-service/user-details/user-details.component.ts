@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { UserInfo } from 'src/app/model/userInformation';
 import { UtilityService } from 'src/app/service/utility.service';
 import { User } from 'src/app/model/user';
@@ -10,11 +10,12 @@ import { User } from 'src/app/model/user';
 })
 export class UserDetailsComponent implements OnInit {
 
-  constructor(private utility: UtilityService) { }
+  constructor(private utility: UtilityService, private cdr: ChangeDetectorRef, ) { }
 
-  public userDetails: any = null;
+  public userDetails: UserInfo = null;
 
   ngOnInit() {
+    this.cdr.detectChanges();
     history.pushState(null, null, location.href);
     window.onpopstate = function (event) {
       history.go(1);
@@ -26,7 +27,6 @@ export class UserDetailsComponent implements OnInit {
     this.utility.getUserDetails(userCrendentials).subscribe((data) => {
       if (data) {
         this.userDetails = data;
-        console.log(this.userDetails);
       }
     });
   }

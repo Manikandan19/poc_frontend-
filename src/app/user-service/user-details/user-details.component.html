@@ -1,140 +1,141 @@
-<div class="container  d-block bg-white mt-5  py-3 shadow-lg rounded-lg w-75 text-justify">
-  <mat-card>
-    <h1 class="text-center">User-Details <i class="fas fa-user-plus"></i> </h1>
+
+<div class="container  bg-white mt-3  py-3 px-3 shadow rounded-lg w-100" *ngIf="userDetails">
+  <mat-card class="my-3">
+    <h1 class="text-center">User-Details <i class="fa fa-user-circle-o" aria-hidden="true"></i> </h1>
   </mat-card>
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>UserName</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4 ">
       {{userDetails.details.userName}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>Forename</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.details.foreName}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>Middlename</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.details.middleName}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>Surname</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.details.surName}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>DateOfBirth</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.details.dob | date}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>Age</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.details.age}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>Gender</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.details.gender}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>Password</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.details.password}}
     </div>
   </div>
-  <mat-card>
+  <mat-card class="my-3">
     <h1 class="text-center">Address <i class="fa fa-address-card" aria-hidden="true"></i></h1>
   </mat-card>
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>FlatNo</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.address.flatNo}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>Landmark</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.address.landMark}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>Street</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.address.street}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>City</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.address.city}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>State</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.address.state}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>Country</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.address.country}}
     </div>
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-sm-4 offset-sm-2">
       <h6>Pincode</h6>
     </div>
-    <div class="col">
+    <div class="col-sm-4">
       {{userDetails.address.zipCode}}
     </div>
   </div>

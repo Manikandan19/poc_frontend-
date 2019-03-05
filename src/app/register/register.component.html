@@ -1,4 +1,4 @@
-<div class="container  d-block bg-white mt-5  py-3 shadow-lg rounded-lg w-50 text-center">
+<div class="container  d-block bg-white mt-5  py-3 shadow-lg rounded-lg w-75 text-center">
   <div *ngIf="isDisable">
     <h6 [className]="alert ? 'alert alert-success' : 'alert alert-danger'">{{response}}<a *ngIf="alert"  [routerLink]="['/login']" routerLinkActive="active-link">Goto Login page</a></h6>
   </div>
