@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { User } from '../model/user';
 import { UserInfo } from '../model/userInformation';
 
@@ -8,24 +9,29 @@ import { UserInfo } from '../model/userInformation';
 })
 export class UtilityService {
 
+
+  public hostname: any = '';
+
   constructor(private http: HttpClient) {
+    this.hostname = environment.url;
+    console.log(environment.url);
   }
 
   checkCredentails(requestBody: User) {
-    return this.http.post('http://localhost:8080/check', requestBody);
+    return this.http.post(`${this.hostname}/check`, requestBody);
   }
 
   saveUserDetails(requestBody: any) {
-    return this.http.post<UserInfo>('http://localhost:8080/register', requestBody);
+    return this.http.post<UserInfo>(`${this.hostname}/register`, requestBody);
   }
 
   getUserDetails(requestBody: any) {
-    return this.http.post<UserInfo>('http://localhost:8080/getUserDetails', requestBody);
+    return this.http.post<UserInfo>(`${this.hostname}/getUserDetails`, requestBody);
   }
 
   updateUserDetails(requestBody: any) {
     console.log(requestBody);
-    return this.http.post<UserInfo>('http://localhost:8080/update', requestBody);
+    return this.http.post<UserInfo>(`${this.hostname}/update`, requestBody);
   }
 
 }
