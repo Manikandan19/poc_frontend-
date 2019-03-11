@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { AlertsComponent } from '../alerts/alerts.component';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 import { UtilityService } from '../service/utility.service';
 
 @Component({
@@ -17,7 +16,7 @@ export class RegisterComponent implements OnInit {
   public response: any = '';
   public alert: Boolean = false;
 
-  constructor(private dialog: MatDialog,private formBuilder: FormBuilder, private spinner: NgxSpinnerService, private router: Router, private utility: UtilityService) { }
+  constructor(private formBuilder: FormBuilder, private spinner: NgxSpinnerService, private snackbar: MatSnackBar, private router: Router, private utility: UtilityService) { }
 
   ngOnInit() {
     history.pushState(null, null, location.href);
@@ -88,28 +87,20 @@ export class RegisterComponent implements OnInit {
     if (isValid === "VALID") {
       this.utility.saveUserDetails(requestBody).subscribe((data) => {
         if (data) {
-          this.response = "Registered Successfully";
+          this.response = " UserDetails registered successfully";
           if (this.response) {
             this.spinner.hide();
+            this.isDisable = true;
             this.alert = true;
-            const reqData = {
-              "response": this.response,
-              "alert":this.alert
-            }
-            this.onCreate(reqData);
           }
          
         }
         else {
-          this.response = " Username is Already  Exists...!!!";
+          this.response = " Username is already  Exists...!!!";
           if (this.response) {
             this.spinner.hide();
+            this.isDisable = true;
             this.alert = false;
-            const reqData = {
-              "response": this.response,
-              "alert":this.alert
-            }
-            this.onCreate(reqData);
           }
         }
 
@@ -119,26 +110,18 @@ export class RegisterComponent implements OnInit {
           this.response = "Request processing failed";
           if (this.response) {
             this.spinner.hide();
+            this.isDisable = true;
             this.alert = false;
-            const reqData = {
-              "response": this.response,
-              "alert":this.alert
-            }
-            this.onCreate(reqData);
           }
         });
     }
 
     else{
-      this.response = "Please Enter All The Mandatory Fields ....!";
+      this.response = "Please enter the mandatory fielsds....!";
           if (this.response) {
             this.spinner.hide();
+            this.isDisable = true;
             this.alert = false;
-            const reqData = {
-              "response": this.response,
-              "alert":this.alert
-            }
-            this.onCreate(reqData);
           }
     }
 
@@ -154,17 +137,4 @@ export class RegisterComponent implements OnInit {
   getBack() {
     return this.router.navigate(['/']);
   }
-
-
-  onCreate(data: any) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = true;
-    dialogConfig.disableClose = true;
-    dialogConfig.data = {
-      "response": data.response,
-      "alert": data.alert
-    }
-    this.dialog.open(AlertsComponent, dialogConfig);
-  }
-
 }

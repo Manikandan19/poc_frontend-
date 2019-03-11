@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatDialogConfig, MatSnackBar } from '@angular/material';
-import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { User } from 'src/app/model/user';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 import { UtilityService } from 'src/app/service/utility.service';
-import { AlertComponent } from '../alert/alert.component';
+import { User } from 'src/app/model/user';
 
 @Component({
   selector: 'app-edit-user-details',
@@ -21,7 +20,7 @@ export class EditUserDetailsComponent implements OnInit {
 
   public userDetails: any = null;
 
-  constructor(private dialog: MatDialog, private formBuilder: FormBuilder, private spinner: NgxSpinnerService, private snackbar: MatSnackBar, private router: Router, private utility: UtilityService) { }
+  constructor(private formBuilder: FormBuilder, private spinner: NgxSpinnerService, private snackbar: MatSnackBar, private router: Router, private utility: UtilityService) { }
 
   ngOnInit() {
     history.pushState(null, null, location.href);
@@ -124,27 +123,19 @@ export class EditUserDetailsComponent implements OnInit {
     if (isValid === "VALID") {
       this.utility.updateUserDetails(requestBody).subscribe((data) => {
         if (data) {
-          this.response = "Updated Successfully";
+          this.response = " UserDetails updated successfully";
           if (this.response) {
             this.spinner.hide();
+            this.isDisable = true;
             this.alert = true;
-            const reqData = {
-              "response": this.response,
-              "alert":this.alert
-            }
-            this.onCreate(reqData);
           }
         }
         else {
           this.response = " Request processing failed";
           if (this.response) {
             this.spinner.hide();
+            this.isDisable = true;
             this.alert = false;
-            const reqData = {
-              "response": this.response,
-              "alert":this.alert
-            }
-            this.onCreate(reqData);
           }
         }
 
@@ -154,26 +145,18 @@ export class EditUserDetailsComponent implements OnInit {
           this.response = "Request processing failed";
           if (this.response) {
             this.spinner.hide();
+            this.isDisable = true;
             this.alert = false;
-            const reqData = {
-              "response": this.response,
-              "alert":this.alert
-            }
-            this.onCreate(reqData);
           }
         });
     }
 
     else {
-      this.response = "Please Enter All The Mandatory Fields....!";
+      this.response = "Request processing failed";
       if (this.response) {
         this.spinner.hide();
+        this.isDisable = true;
         this.alert = false;
-        const reqData = {
-          "response": this.response,
-          "alert":this.alert
-        }
-        this.onCreate(reqData);
       }
 
     }
@@ -188,20 +171,7 @@ export class EditUserDetailsComponent implements OnInit {
   }
 
   getBack() {
-    return this.router.navigate(['/user-service/user/user-details']);
+    return this.router.navigate(['/api-service/user/user-details']);
   }
-
-  onCreate(data: any) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus = true;
-    dialogConfig.disableClose = true;
-    dialogConfig.data = {
-      "response": data.response,
-      "alert": data.alert
-    }
-    this.dialog.open(AlertComponent, dialogConfig);
-  }
-
-
 
 }

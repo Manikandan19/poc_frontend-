@@ -125,8 +125,8 @@
           <mat-form-field>
             <input matInput formControlName="flatNo" placeholder="FlatNo" />
           </mat-form-field>
-          <div *ngIf="address.controls.flatNo.errors && (address.controls.flatNo.dirty ||address.controls.flatNo.touched)">
-            <mat-error *ngIf="address.controls.flatNo.hasError('required')">
+          <div *ngIf="address.flatNo.errors && (address.flatNo.dirty || address.flatNo.touched)">
+            <mat-error *ngIf="address.flatNo.hasError('required')">
               FlatNo is required
             </mat-error>
           </div>
